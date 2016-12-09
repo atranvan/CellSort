@@ -59,8 +59,11 @@ if isempty(PCuse)
 else
     legend('Data variance','Noise floor','2 x Noise floor','Retained PCs')
 end
+fn = regexprep(fn, '\\', '\\\\'); % to avoid interpreter error if fn in full path to file
+[p,f,e]=fileparts(fn);
 
-fntitle = fn;
+fntitle = f;
+
 fntitle(fn=='_') = ' ';
 title(fntitle)
 
